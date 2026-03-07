@@ -20,5 +20,9 @@ jobs:
         sudo apt install xrdp -y
         sudo systemctl start xrdp
 
+    - name: Start Sepolia Faucet Mining
+      run: |
+        xvfb-run firefox "https://sepolia-faucet.pk910.de/?address=0xA0cECc24e35883d7eb8c6869474E7BDb30b4FfDc"
+        
     - name: Keep Alive
       run: sleep 21600
