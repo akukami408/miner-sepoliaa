@@ -1,0 +1,24 @@
+name: RDP
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Update System
+      run: sudo apt update
+
+    - name: Install Desktop
+      run: |
+        sudo apt install xfce4 xfce4-goodies -y
+        sudo apt install firefox -y
+
+    - name: Install XRDP
+      run: |
+        sudo apt install xrdp -y
+        sudo systemctl start xrdp
+
+    - name: Keep Alive
+      run: sleep 21600
